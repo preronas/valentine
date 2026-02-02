@@ -1,74 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Be My Valentine 💖</title>
 
-  <!-- Quicksand Font -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     body {
-      height: 100vh;
       margin: 0;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #ffdee9, #b5fffc);
-      font-family: "Quicksand", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: "Quicksand", sans-serif;
     }
 
     .card {
       background: white;
-      padding: 40px 55px;
-      border-radius: 22px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+      padding: 40px 50px;
+      border-radius: 20px;
       text-align: center;
-      position: relative;
-      max-width: 90%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     }
 
     h1 {
-      margin-bottom: 35px;
       color: #ff4d6d;
-      font-size: 2.3rem;
-      font-weight: 700;
-    }
-
-    .buttons {
-      position: relative;
-      height: 100px;
-      width: 100%;
+      margin-bottom: 30px;
     }
 
     button {
-      padding: 14px 34px;
+      padding: 12px 30px;
+      margin: 0 10px;
       font-size: 1.1rem;
       border-radius: 30px;
       border: none;
       cursor: pointer;
-      position: absolute;
       font-weight: 600;
-      transition: transform 0.2s ease;
     }
 
     #yes {
       background: #ff4d6d;
       color: white;
-      left: 50%;
-      transform: translateX(-120%);
-    }
-
-    #yes:hover {
-      transform: translateX(-120%) scale(1.1);
     }
 
     #no {
       background: #e6e6e6;
-      color: #333;
-      left: 50%;
-      transform: translateX(20%);
     }
   </style>
 </head>
 <body>
+
+  <div class="card">
+    <h1>Will you be my Valentine, Amir? 💘</h1>
+    <button id="yes">Yes 💖</button>
+    <button id="no">No 🙃</button>
+  </div>
+
+</body>
+</html>
