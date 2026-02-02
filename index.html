@@ -14,49 +14,119 @@
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #ffdee9, #b5fffc);
-      font-family: "Quicksand", sans-serif;
+      font-family: "Quicksand", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     .card {
       background: white;
-      padding: 40px 50px;
-      border-radius: 20px;
+      padding: 40px 55px;
+      border-radius: 22px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.15);
       text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      width: 320px;
     }
 
     h1 {
       color: #ff4d6d;
       margin-bottom: 30px;
+      font-size: 2.1rem;
+      font-weight: 700;
+    }
+
+    .buttons {
+      position: relative;
+      height: 120px;
     }
 
     button {
-      padding: 12px 30px;
-      margin: 0 10px;
+      padding: 14px 34px;
       font-size: 1.1rem;
       border-radius: 30px;
       border: none;
       cursor: pointer;
       font-weight: 600;
+      position: absolute;
+      transition: transform 0.15s ease;
     }
 
     #yes {
       background: #ff4d6d;
       color: white;
+      left: 30px;
+      top: 40px;
     }
 
     #no {
       background: #e6e6e6;
+      color: #333;
+      right: 30px;
+      top: 40px;
     }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <h1>Will you be my Valentine, Amir? 💘</h1>
-    <button id="yes">Yes 💖</button>
-    <button id="no">No 🙃</button>
+    <h1>Will you be my Valentine, HISNAME? 💘</h1>
+
+    <div class="buttons">
+      <button id="yes">Yes 💖</button>
+      <button id="no">No 🙃</button>
+    </div>
   </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const container = document.querySelector(".buttons");
+
+    noBtn.addEventListener("mouseenter", () => {
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+      noBtn.style.right = "auto";
+    });
+
+    noBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+          font-family:'Quicksand', sans-serif;
+          text-align:center;
+        ">
+          <h1 style="color:white;font-size:3rem;">
+            Nice try 😏<br/>But you still chose YES 💕
+          </h1>
+        </div>
+      `;
+    });
+
+    document.getElementById("yes").addEventListener("click", () => {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+          font-family:'Quicksand', sans-serif;
+          text-align:center;
+        ">
+          <h1 style="color:white;font-size:3rem;">
+            YAY!!! 💖<br/>I knew it 🥰
+          </h1>
+        </div>
+      `;
+    });
+  </script>
 
 </body>
 </html>
