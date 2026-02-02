@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <title>Be My Valentine 💖</title>
+
+  <!-- Quicksand Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       height: 100vh;
@@ -12,101 +15,60 @@
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #ffdee9, #b5fffc);
-      font-family: "Poppins", "Comic Sans MS", cursive;
+      font-family: "Quicksand", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     .card {
       background: white;
-      padding: 40px 50px;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      padding: 40px 55px;
+      border-radius: 22px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.15);
       text-align: center;
       position: relative;
+      max-width: 90%;
     }
 
     h1 {
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       color: #ff4d6d;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
+      font-weight: 700;
     }
 
     .buttons {
       position: relative;
-      height: 90px;
+      height: 100px;
+      width: 100%;
     }
 
     button {
-      padding: 12px 30px;
+      padding: 14px 34px;
       font-size: 1.1rem;
       border-radius: 30px;
       border: none;
       cursor: pointer;
       position: absolute;
+      font-weight: 600;
+      transition: transform 0.2s ease;
     }
 
     #yes {
       background: #ff4d6d;
       color: white;
       left: 50%;
-      transform: translateX(-110%);
+      transform: translateX(-120%);
+    }
+
+    #yes:hover {
+      transform: translateX(-120%) scale(1.1);
     }
 
     #no {
-      background: #e0e0e0;
+      background: #e6e6e6;
       color: #333;
       left: 50%;
-      transform: translateX(10%);
+      transform: translateX(20%);
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Will you be my Valentine, Amir? 💘</h1>
-    <div class="buttons">
-      <button id="yes">Yes 💖</button>
-      <button id="no">No 🙃</button>
-    </div>
-  </div>
-
-  <script>
-    const noBtn = document.getElementById("no");
-    const yesBtn = document.getElementById("yes");
-    const buttons = document.querySelector(".buttons");
-
-    // No button runs away
-    noBtn.addEventListener("mouseover", () => {
-      const maxX = buttons.clientWidth - noBtn.offsetWidth;
-      const maxY = buttons.clientHeight - noBtn.offsetHeight;
-
-      noBtn.style.left = Math.random() * maxX + "px";
-      noBtn.style.top = Math.random() * maxY + "px";
-    });
-
-    // Fake "No accepted"
-    noBtn.addEventListener("click", () => {
-      showYesScreen("Nice try 😏<br/>But you still chose YES 💕");
-    });
-
-    // Yes button
-    yesBtn.addEventListener("click", () => {
-      showYesScreen("YAY!!! 💖<br/>I knew it 🥰");
-    });
-
-    function showYesScreen(message) {
-      document.body.innerHTML = `
-        <div style="
-          height:100vh;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-          font-family:'Poppins',cursive;
-          text-align:center;
-        ">
-          <h1 style="color:white;font-size:3rem;">${message}</h1>
-        </div>
-      `;
-    }
-  </script>
-</body>
-</html>
