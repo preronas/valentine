@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Be My Valentine 💖</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffdee9, #b5fffc);
+      font-family: "Poppins", "Comic Sans MS", cursive;
+    }
+
+    .card {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #ff4d6d;
+      font-size: 2.2rem;
+    }
+
+    .buttons {
+      position: relative;
+      height: 90px;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+      left: 50%;
+      transform: translateX(-110%);
+    }
+
+    #no {
+      background: #e0e0e0;
+      color: #333;
+      left: 50%;
+      transform: translateX(10%);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Will you be my Valentine? 💘</h1>
+    <div class="buttons">
+      <button id="yes">Yes 💖</button>
+      <button id="no">No 🙃</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const buttons = document.querySelector(".buttons");
+
+    // No button runs away
+    noBtn.addEventListener("mouseover", () => {
+      const maxX = buttons.clientWidth - noBtn.offsetWidth;
+      const maxY = buttons.clientHeight - noBtn.offsetHeight;
+
+      noBtn.style.left = Math.random() * maxX + "px";
+      noBtn.style.top = Math.random() * maxY + "px";
+    });
+
+    // Fake "No accepted"
+    noBtn.addEventListener("click", () => {
+      showYesScreen("Nice try 😏<br/>But you still chose YES 💕");
+    });
+
+    // Yes button
+    yesBtn.addEventListener("click", () => {
+      showYesScreen("YAY!!! 💖<br/>I knew it 🥰");
+    });
+
+    function showYesScreen(message) {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+          font-family:'Poppins',cursive;
+          text-align:center;
+        ">
+          <h1 style="color:white;font-size:3rem;">${message}</h1>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
